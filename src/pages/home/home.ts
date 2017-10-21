@@ -22,28 +22,10 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   public loggedIn: boolean = false;
 
-  environment: any;
-  
-    items: Observable<Item[]>;
-  
-    
 
-  
 
     constructor(public navCtrl: NavController, private firebase: FirebaseProvider, 
       private AuthenticationProvider : AuthenticationProvider) {
-      this.environment = ENVIRONMENT.environment;
-      console.log(JSON.stringify(ENVIRONMENT))
-  
-
-
-      this.items = this.firebase.getSnapshotBase<Item>("items").map(data => {
-        data.forEach(item => {
-          item.subCollection = this.firebase.getCollectionList<subCollection>(`items/${item.id}/subCollection`);
-        });
-        return data;
-  
-      })
   
     }
 
@@ -55,16 +37,6 @@ export class HomePage {
       })
     }
   
-    public innerAdd(id) {
-      const newItem: subCollection = { blah: "Testing" + id };
-      this.firebase.setItem(`items/${id}/subCollection`, newItem);
-  
-    }
-  
-    public add() {
-      const newItem: Item = { name: "Testing" };
-      this.firebase.setItem("items", newItem);
-    }
   
 
 
