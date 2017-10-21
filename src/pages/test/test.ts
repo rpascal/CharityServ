@@ -8,13 +8,19 @@ import { ENVIRONMENT } from './../../environments/environment.default';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
+/**
+ * Generated class for the TestPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-test',
+  templateUrl: 'test.html',
 })
-export class HomePage {
+export class TestPage {
 
   environment: any;
   
@@ -45,6 +51,5 @@ export class HomePage {
       this.firebase.setItem("items", newItem);
     }
   
-
 
 }
