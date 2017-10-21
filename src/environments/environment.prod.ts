@@ -1,0 +1,7 @@
+import * as merge from 'deepmerge';
+import { ENVIRONMENT as DEFAULT_ENVIRONMENT } from './environment.default';
+
+export const ENVIRONMENT = merge(DEFAULT_ENVIRONMENT, {
+  environment : "prod"
+  
+});

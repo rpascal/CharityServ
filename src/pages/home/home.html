@@ -7,8 +7,20 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <h3>{{environment}}</h3>
+  
+  
+    <ul>
+      <li *ngFor="let item of items | async">
+        {{ item.id }}
+  
+        <p *ngFor="let sub of item.subCollection | async">
+          {{sub | json}}
+        </p>
+        <button ion-button secondary (click)="innerAdd(item.id)">Add Sub</button>
+  
+      </li>
+    </ul>
+  
+    <button ion-button secondary (click)="add()">Add</button>
 </ion-content>
