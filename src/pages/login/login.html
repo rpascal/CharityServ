@@ -1,0 +1,43 @@
+<ion-content padding>
+  <img center class="logo" src="assets/imgs/logo.png">
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="loginForm.controls.email.dirty  && !loginForm.controls.email.valid">
+        <p class="form-error" item-right *ngIf="loginForm.controls.email.hasError('required')">
+          This is a required field.
+        </p>
+        <p class="form-error" item-right *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')">
+          Enter valid email.
+        </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="key" item-start></ion-icon>
+
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="loginForm.controls.password.dirty  && !loginForm.controls.password.valid">
+        <p class="form-error" item-right *ngIf="loginForm.controls.password.hasError('required')">
+          This is a required field.
+        </p>
+      </ion-item>
+    </ion-list>
+    <button ion-button block full color="robust" type="submit" [disabled]="!loginForm.valid">Log in</button>
+  </form>
+  <button ion-button block full color="primary" (click)="signUp()">Sign up</button>
+  <button ion-button block full clear color="steel" (click)="resetPassword()">Lost your password?</button>
+
+  <!-- <ion-fab bottom right>
+    <button ion-fab color="facebook" (click)="signInWithOAuth('Facebook')"><ion-icon name="logo-facebook"></ion-icon></button>
+  </ion-fab>
+  <ion-fab bottom left>
+    <button ion-fab color="google" (click)="signInWithOAuth('Google')"><ion-icon name="logo-googleplus"></ion-icon></button>
+  </ion-fab> -->
+</ion-content>

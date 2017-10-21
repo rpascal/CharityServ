@@ -1,3 +1,5 @@
+import { Loader } from './../providers/loader/loader';
+import { AuthenticationProvider } from './../providers/authentication/authentication';
 import { AlertProvider } from './../providers/alert/alert';
 import { ToastProvider } from './../providers/toast/toast';
 import { FirebaseProvider } from './../providers/firebase/firebase';
@@ -38,7 +40,9 @@ import { ENVIRONMENT } from './../environments/environment.default';
     FirebaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ToastProvider,
-    AlertProvider
+    AlertProvider,
+    AuthenticationProvider,
+    Loader
   ]
 })
 export class AppModule {}
