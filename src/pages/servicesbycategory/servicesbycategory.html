@@ -32,7 +32,7 @@
             Phone: {{(service.charityID | charityById | async)?.Phone}}
           </p>
           <p *ngIf="(service.charityID | charityById | async)?.URL != ''">
-              Website: {{(service.charityID | charityById | async)?.Name}}
+              Website: {{(service.charityID | charityById | async)?.URL}}
             </p>
         </ion-item>
 
