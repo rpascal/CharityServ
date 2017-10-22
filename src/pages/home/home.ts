@@ -1,3 +1,4 @@
+import { ServicesProvider } from './../../providers/services/services';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
@@ -25,9 +26,10 @@ export class HomePage {
   public loggedIn: boolean = false;
 
   constructor(public navCtrl: NavController,
-     private firebase: FirebaseProvider,
-    private AuthenticationProvider: AuthenticationProvider) {
-    this.category = this.firebase.getSnapshotBase<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories);
+    private firebase: FirebaseProvider,
+    private AuthenticationProvider: AuthenticationProvider,
+    public ServicesProvider: ServicesProvider) {
+    this.category = this.ServicesProvider.getServiceCategories();//this.firebase.getSnapshotBase<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories);
   }
 
 

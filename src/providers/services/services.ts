@@ -20,7 +20,10 @@ export class ServicesProvider {
   }
 
   public getServiceCategories() {
-    return this.AFS.collection<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories, ref => ref.where("isActive", "==", true).orderBy('name')).snapshotChanges().map(actions => {
+    return this.AFS.collection<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories, ref => {
+      //.where("isActive", "==", true)
+      return ref.orderBy('name');
+    }).snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Category;
         const id = a.payload.doc.id;
