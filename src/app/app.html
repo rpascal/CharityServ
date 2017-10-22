@@ -1,18 +1,9 @@
 
   <ion-menu [content]="content" id="menu-material">
     <ion-content>
-      <div class="menu-header">
-        <!--material-design-background-->
-        <!-- <img class="user-avatar round" style="height:90px;max-width:90px;" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/avatar/girl-avatar.png'" -->
-        
-        <img class="user-avatar round" style="height:90px;max-width:90px;" [src]="chosenPicture || placeholder" onerror="this.src='assets/imgs/avatar/girl-avatar.png'"
-        />
-        <p class="name">OST</p>
-        <p class="e-mail">opensourcetechnologies.com</p>
-      </div>
-      <ion-list no-lines>
-        <button menuClose="left" ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)" [class.activeMenuItem]="p.active==true">
-        <ion-icon [name]="p.icon" item-left ></ion-icon>
+      <ion-list no-lines class="transparentBackGround">
+        <button class="transparentBackGround" menuClose="left" ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)" [class.activeMenuItem]="p.active==true">
+        <ion-icon class="transparentBackGround" [name]="p.icon" item-left ></ion-icon>
         {{p.title}}
       </button>
       </ion-list>

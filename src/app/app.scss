@@ -12,6 +12,18 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.transparentBackGround {
+  background: transparent !important;
+}
+
+.scroll-content,
+ion-menu,
+.menu-inner {
+  overflow-y: auto;
+  background-image: url('../assets/imgs/background.png');
+  background-position: initial initial;
+  background-repeat: initial initial;
+}
 
 .align-center {
   text-align: center;
@@ -64,12 +76,11 @@
   .header-ios .toolbar-background-ios,
   .footer-ios .toolbar-background-ios {
     border: 0;
-  }
-  // ---
+  } // ---
 }
 
 .activeMenuItem {
-  background-color: #E4F1FE;
+  background-color: #E4F1FE !important;
 }
 
 .icon-badge {
@@ -82,7 +93,6 @@
   padding: 5px 8px;
   border-radius: 15px;
 }
-
 
 // Material Design Sidemenu
 #menu-material {
@@ -101,7 +111,8 @@
     }
   }
   .user-avatar {
-    max-width: 125px;height: 125px;
+    max-width: 125px;
+    height: 125px;
     padding: .5em;
     height: 12vh;
   }

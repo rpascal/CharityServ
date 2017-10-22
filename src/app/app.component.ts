@@ -33,19 +33,11 @@ export class MyApp {
     });
 
 
+
     this.pages = [
       { title: 'Home', component: 'HomePage', active: true, icon: 'home' },
-      { title: 'My Address', component: 'TestPage', active: false, icon: 'map' },
-      {
-        title: 'My Orders',
-        component: 'HomePage', active: false, icon: 'ionic'
-      },
-      { title: 'My Cart', component: 'HomePage', active: false, icon: 'ionic' },
-      { title: 'Login', component: 'TestPage', active: false, icon: 'archive' },
-      { title: 'Offer Zone', component: 'HomePage', active: false, icon: 'body' },
-      { title: 'Need Help', component: 'TestPage', active: false, icon: 'bookmarks' },
-      { title: 'Rate Us', component: 'HomePage', active: false, icon: 'book' },
-      { title: 'Logout', component: 'TestPage', active: false, icon: 'map', logout: true },
+      { title: 'Profile', component: 'ProfilePage', active: false, icon: 'person' },
+      { title: 'Logout', component: 'TestPage', active: false, icon: 'exit', logout: true },
 
     ];
 
