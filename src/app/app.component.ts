@@ -50,6 +50,7 @@ export class MyApp {
 
     ];
 
+    //jkdshkd
     this.activePage.subscribe((selectedPage: any) => {
       this.pages.map(page => {
         page.active = page.title === selectedPage.title;
