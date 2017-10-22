@@ -42,9 +42,9 @@ export class SignupPage {
   ionViewWillLoad() {
     // Validate user registration form
     this.signUpForm = this.formBuilder.group({
-      charity: ['', Validators.required],
-      url: [''],
-      phone: [''],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      phone: ['', Validators.required],
       email: ['', this.emailValidator],
       password: ['', this.passwordValidator],
       passwordConfirmation: ['', this.passwordValidator]
@@ -59,18 +59,21 @@ export class SignupPage {
 
   createUser() {
 
-    let charityName = this.signUpForm.controls.charity.value;
-    let url = this.signUpForm.controls.url.value;
+    let firstname = this.signUpForm.controls.firstname.value;
+    let lastname = this.signUpForm.controls.lastname.value;
     let phone = this.signUpForm.controls.phone.value;
     let email = this.signUpForm.controls.email.value;
     let password = this.signUpForm.controls.password.value;
 
-    let charity: UserModel = {
-
+    let user: UserModel = {
+      firstname: firstname,
+      lastname: lastname,
+      phone: phone,
+      email: email
     }
 
     this.loader.show("Creating user...");
-    this.AuthenticationProvider.createUserWithEmailAndPassword(charity, email, password).then(res => {
+    this.AuthenticationProvider.createUserWithEmailAndPassword(user, email, password).then(res => {
       this.loader.hide()
       this.navCtrl.setRoot("HomePage")
     }).catch(err => {

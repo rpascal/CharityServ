@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Create your Charity</ion-title>
+    <ion-title>Create your User Account.</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,21 +8,31 @@
   <form [formGroup]="signUpForm" (ngSubmit)="createUser()">
     <ion-list>
       <ion-item>
-        <ion-label class="red" stacked>Charity *</ion-label>
-        <ion-input type="text" formControlName="charity"></ion-input>
+        <ion-label class="red" stacked>First Name *</ion-label>
+        <ion-input type="text" formControlName="firstname"></ion-input>
       </ion-item>
-      <ion-item class="form-error-list" *ngIf="signUpForm.controls.charity.dirty && !signUpForm.controls.charity.valid">
-        <p class="form-error" item-right *ngIf="signUpForm.controls.charity.hasError('required')">
+      <ion-item class="form-error-list" *ngIf="signUpForm.controls.firstname.dirty && !signUpForm.controls.firstname.valid">
+        <p class="form-error" item-right *ngIf="signUpForm.controls.firstname.hasError('required')">
           This is a required field.
         </p>
       </ion-item>
       <ion-item>
-        <ion-label stacked>Website Address</ion-label>
-        <ion-input type="text" formControlName="url"></ion-input>
+        <ion-label class="red" stacked>Last Name *</ion-label>
+        <ion-input type="text" formControlName="lastname"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="signUpForm.controls.lastname.dirty && !signUpForm.controls.lastname.valid">
+        <p class="form-error" item-right *ngIf="signUpForm.controls.lastname.hasError('required')">
+          This is a required field.
+        </p>
       </ion-item>
       <ion-item>
-        <ion-label stacked>Phone</ion-label>
+        <ion-label stacked>Phone *</ion-label>
         <ion-input type="tel" formControlName="phone" mask="999-999-9999" placeholder="Phone" ></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="signUpForm.controls.phone.dirty && !signUpForm.controls.phone.valid">
+        <p class="form-error" item-right *ngIf="signUpForm.controls.phone.hasError('required')">
+          This is a required field.
+        </p>
       </ion-item>
 
       <ion-item>

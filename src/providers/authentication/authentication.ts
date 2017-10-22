@@ -59,11 +59,12 @@ export class AuthenticationProvider {
   }
 
 
-  public createUserWithEmailAndPassword(user: UserModel, email: string, password: string): Promise<any> {
+  public createUserWithEmailAndPassword(newuser: UserModel, email: string, password: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.angularfireAuth.auth.createUserWithEmailAndPassword(email, password).then(res => {
         this.loginWithEmail(email, password).then(user => {
-          this.firebase.setItemWithID(user.uid, ENVIRONMENT.firebaseDataPaths.users, user);
+          console.log(user.uid, ENVIRONMENT.firebaseDataPaths.users, newuser);
+          this.firebase.setItemWithID(user.uid, ENVIRONMENT.firebaseDataPaths.users, newuser);
           resolve(user);
         }).catch(error => {
           reject(error);

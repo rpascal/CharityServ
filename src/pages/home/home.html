@@ -8,12 +8,35 @@
           <ion-icon name="menu"></ion-icon>
         </button>
       </ion-buttons>
-      <ion-title>Side Menu</ion-title>
+      <ion-title>CharityServU</ion-title>
 
     </ion-navbar>
   </ion-header>
 
   <ion-content padding>
+<!--    <ul>
+      <li *ngFor="let i of category | async">
+        <p>
+        {{ i.name }}
+        </p>
+      </li>
+    </ul> -->
+    <ion-card *ngFor="let i of category | async">
+        <ion-card-content>
+          <ion-card-title>
+        
+               {{i.name}}
+ 
+          </ion-card-title>
+          <ion-card-content>
+            <p>
+              
+           </p>
+          </ion-card-content> 
+      
+        </ion-card-content>
+       </ion-card>
+
 
   </ion-content>
 
