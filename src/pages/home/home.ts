@@ -24,7 +24,8 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   public loggedIn: boolean = false;
 
-  constructor(public navCtrl: NavController, private firebase: FirebaseProvider,
+  constructor(public navCtrl: NavController,
+     private firebase: FirebaseProvider,
     private AuthenticationProvider: AuthenticationProvider) {
     this.category = this.firebase.getSnapshotBase<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories);
   }

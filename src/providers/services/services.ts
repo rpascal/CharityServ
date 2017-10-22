@@ -18,6 +18,18 @@ export class ServicesProvider {
   constructor(public AFS: AngularFirestore) {
     console.log('Hello ServicesProvider Provider');
   }
+
+  public getServiceCategories() {
+    return this.AFS.collection<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories, ref => ref.where("isActive", "==", true).orderBy('name')).snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Category;
+        const id = a.payload.doc.id;
+        return Object.assign(data, { id: id });
+      });
+    });
+
+  }
+
   public getServicesFromCategory(Category: Category) {
     return this.AFS.collection<service>(ENVIRONMENT.firebaseDataPaths.service, ref => ref.where("MainCategory", '==', Category.name).where("isActive", "==", true)).snapshotChanges().map(actions => {
       return actions.map(a => {
