@@ -1,4 +1,5 @@
-export interface request{
+import { baseInterface } from './baseModel';
+export interface request extends baseInterface{
     charityID : string;
     serviceID : string;
     opened : Date;

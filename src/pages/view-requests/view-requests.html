@@ -40,6 +40,10 @@
   <ion-card *ngFor='let request of requests | async'>
     <ion-card-header>
       {{(request.serviceID | serviceById | async)?.Title}}
+
+      <ion-icon *ngIf="request.status == 'pending'" style="float: right;" (click)="delete(request)" name="trash">
+        </ion-icon>
+
     </ion-card-header>
     <ion-card-content>
         <ion-item>

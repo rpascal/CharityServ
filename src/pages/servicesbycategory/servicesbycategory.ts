@@ -46,6 +46,7 @@ export class ServicesbycategoryPage {
         status: 'pending',
         userID: id,
         opened: moment().toDate(),
+        isActive : true
       };
 
 

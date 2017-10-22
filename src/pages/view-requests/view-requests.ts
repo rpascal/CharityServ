@@ -1,3 +1,5 @@
+import { FirebaseProvider } from './../../providers/firebase/firebase';
+import { ENVIRONMENT } from './../../environments/environment.default';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { RequestsProvider } from './../../providers/requests/requests';
 import { request } from './../../models/request';
@@ -29,7 +31,8 @@ export class ViewRequestsPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public RequestsProvider: RequestsProvider,
-    public AuthenticationProvider: AuthenticationProvider) {
+    public AuthenticationProvider: AuthenticationProvider,
+    public firebase: FirebaseProvider) {
     this.AuthenticationProvider.getUserID().then(id => {
       this.requests = this.RequestsProvider.getRequest(id);
     })
@@ -42,6 +45,10 @@ export class ViewRequestsPage {
     this.RequestsProvider.filterByStatus(this.currentStatus);
   }
 
+
+  delete(request: request) {
+    this.firebase.deleteItem(ENVIRONMENT.firebaseDataPaths.request, request.id, request)
+  }
 
 
 }
