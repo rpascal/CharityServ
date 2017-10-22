@@ -19,7 +19,7 @@ export class ServicesProvider {
     console.log('Hello ServicesProvider Provider');
   }
   public getServicesFromCategory(Category: Category) {
-    this.AFS.collection<service>(ENVIRONMENT.firebaseDataPaths.service, ref => ref.where("MainCategory", '==', Category.name)).snapshotChanges().map(actions => {
+    return this.AFS.collection<service>(ENVIRONMENT.firebaseDataPaths.service, ref => ref.where("MainCategory", '==', Category.name)).snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as service;
         const id = a.payload.doc.id;

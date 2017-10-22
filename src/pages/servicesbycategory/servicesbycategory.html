@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>servicesbycategory</ion-title>
+    <ion-title>Services - {{selectedCategory.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card *ngFor='let service of services | async'>
+    <ion-card-header>
+      {{service.Title}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>{{service.Description}}</ion-item>
+      <ion-item>
+
+        <button type="button" full ion-button block color="secondary" (click)="request(service)">Request</button>
+
+      </ion-item>
+
+
+    </ion-card-content>
+  </ion-card>
+
 
 </ion-content>

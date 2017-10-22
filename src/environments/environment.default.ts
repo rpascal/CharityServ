@@ -12,7 +12,8 @@ export const ENVIRONMENT = {
     charity : "charity",
     users : "user",
     ServiceCategories : "ServiceCategories",
-    service : "service"
+    service : "service",
+    request : "requests"
  },
   facebookAppId: "1025234637591184",
   googleClientId: "31493597450-u75kd39sk6f8q6r4bfh807oush6tq7lu.apps.googleusercontent.com",

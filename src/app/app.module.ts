@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ENVIRONMENT } from './../environments/environment.default';
 import { ServicesProvider } from '../providers/services/services';
+import { RequestsProvider } from '../providers/requests/requests';
 
 
 
@@ -44,7 +45,8 @@ import { ServicesProvider } from '../providers/services/services';
     AlertProvider,
     AuthenticationProvider,
     Loader,
-    ServicesProvider
+    ServicesProvider,
+    RequestsProvider
   ]
 })
 export class AppModule {}

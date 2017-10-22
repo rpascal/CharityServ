@@ -21,7 +21,7 @@
         </p>
       </li>
     </ul> -->
-    <ion-card *ngFor="let i of category | async">
+    <ion-card *ngFor="let i of category | async" (click)="servicesByCategory(i)">
         <ion-card-content>
           <ion-card-title>
         

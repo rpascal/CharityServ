@@ -1,6 +1,6 @@
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
 import { Item, subCollection } from './../../models/ItemModel';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
@@ -9,7 +9,7 @@ import { Category } from './../../models/category';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
-import {  ViewChild } from '@angular/core';
+import { ViewChild } from '@angular/core';
 
 
 @IonicPage()
@@ -24,23 +24,26 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   public loggedIn: boolean = false;
 
-    constructor(public navCtrl: NavController, private firebase: FirebaseProvider, 
-      private AuthenticationProvider : AuthenticationProvider) {
-        this.category = this.firebase.getSnapshotBase<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories); 
-    }
+  constructor(public navCtrl: NavController, private firebase: FirebaseProvider,
+    private AuthenticationProvider: AuthenticationProvider) {
+    this.category = this.firebase.getSnapshotBase<Category>(ENVIRONMENT.firebaseDataPaths.ServiceCategories);
+  }
 
 
-    ionViewWillEnter() {
-      this.AuthenticationProvider.redirectIfNotLoggedIn(this.navCtrl).then(loggedIn => {
-        this.loggedIn = loggedIn;
-        this.content.resize();
-        
+  ionViewWillEnter() {
+    this.AuthenticationProvider.redirectIfNotLoggedIn(this.navCtrl).then(loggedIn => {
+      this.loggedIn = loggedIn;
+      this.content.resize();
 
 
-      })
-    }
-  
-  
+
+    })
+  }
+
+  servicesByCategory(Category: Category) {
+    this.navCtrl.push("ServicesbycategoryPage", Category);
+
+  }
 
 
 }
