@@ -22,7 +22,7 @@ export class AuthenticationProvider {
     public db: AngularFirestore,
     public firebase: FirebaseProvider) {
   }
-  
+
   public redirectIfNotLoggedIn(navCtrl: NavController): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.isLoggedIn().then(loggedIn => {
@@ -36,7 +36,7 @@ export class AuthenticationProvider {
     });
   }
 
-  public getUserID() : Promise<string> {
+  public getUserID(): Promise<string> {
     return new Promise((resolve, reject) => {
       this.angularfireAuth.authState.take(1).subscribe(user => {
         if (user) {
@@ -54,7 +54,9 @@ export class AuthenticationProvider {
     return new Promise((resolve, reject) => {
       this.angularfireAuth.authState.subscribe(user => {
         if (user)
-          resolve(true)
+          this.firebase.checkExist(ENVIRONMENT.firebaseDataPaths.users, user.uid).then(val => {
+            resolve(val)
+          })
         else
           resolve(false)
       })

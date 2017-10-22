@@ -1,0 +1,62 @@
+<!--
+  Generated template for the ViewRequestsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle="left">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Requests</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="currentStatus" color="secondary" (ionChange)="statusChange()">
+      <ion-segment-button value="pending">
+        Pending
+      </ion-segment-button>
+      <ion-segment-button value="accepted">
+        Accepted
+      </ion-segment-button>
+      <ion-segment-button value="declined">
+        Declined
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <ion-card *ngFor='let request of requests | async'>
+    <ion-card-header>
+      {{(request.serviceID | serviceById | async)?.Title}}
+    </ion-card-header>
+    <ion-card-content>
+        <ion-item>
+            Charity: {{(request.charityID | charityById | async)?.Name}}
+          </ion-item>
+      <ion-item>
+        Category: {{(request.serviceID | serviceById | async)?.MainCategory}}
+      </ion-item>
+      <ion-item>
+        Requested : {{request.opened | dateTimeFormat}}
+      </ion-item>
+
+      <ion-item *ngIf="request.status != 'pending'">
+        Closed : {{request.closed | dateTimeFormat}}
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

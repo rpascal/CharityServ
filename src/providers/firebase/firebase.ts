@@ -12,6 +12,18 @@ export class FirebaseProvider {
   constructor(private afs: AngularFirestore) {
   }
 
+  public getDocument<T>(path: string, doc: string): Observable<T> {
+    return this.afs.doc<T>(`${path}/${doc}`).valueChanges();
+  }
+
+  public checkExist(path: string, doc: string): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.afs.doc(`${path}/${doc}`).ref.get().then(x => {
+        resolve(x.exists)
+      })
+    })
+  }
+
 
   public getCollectionList<T>(path: string, states?: any[]): Observable<T[]> {
     // .valueChanges() is simple. It just returns the 
@@ -37,7 +49,7 @@ export class FirebaseProvider {
 
   }
 
-  public getPlainSnapshot(path: string){
+  public getPlainSnapshot(path: string) {
     return this.afs.collection<any>(path).snapshotChanges();
   }
 
@@ -91,16 +103,16 @@ export class FirebaseProvider {
     const item: T = Object.assign({ id: id }, object);
     return this.afs.collection<T>(path).doc(id).set(item);
   }
-    
-  setItemWithID<T extends baseInterface>(id : string, path: string, object: T) {
+
+  setItemWithID<T extends baseInterface>(id: string, path: string, object: T) {
     const item: T = Object.assign({ id: id }, object);
     return this.afs.collection<T>(path).doc(id).set(item);
   }
 
-  updateItem<T extends baseInterface>(path: string,id: string, object: T) {
+  updateItem<T extends baseInterface>(path: string, id: string, object: T) {
     return this.afs.collection<T>(path).doc(id).update(object);
   }
-  deleteItem<T extends baseInterface>(path: string,id: string, object: T) {
+  deleteItem<T extends baseInterface>(path: string, id: string, object: T) {
     return this.afs.collection<T>(path).doc(id).delete();
   }
 
