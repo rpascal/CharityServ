@@ -36,6 +36,19 @@ export class AuthenticationProvider {
     });
   }
 
+  public getUserID() : Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.angularfireAuth.authState.take(1).subscribe(user => {
+        if (user) {
+          resolve(user.uid);
+        }
+        else
+          resolve(null)
+      })
+    });
+
+  }
+
 
   public isLoggedIn() {
     return new Promise((resolve, reject) => {
@@ -57,6 +70,7 @@ export class AuthenticationProvider {
       });
     });
   }
+
 
 
   public createUserWithEmailAndPassword(newuser: UserModel, email: string, password: string): Promise<any> {

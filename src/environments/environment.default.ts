@@ -11,7 +11,8 @@ export const ENVIRONMENT = {
   firebaseDataPaths : {
     charity : "charity",
     users : "user",
-    ServiceCategories : "ServiceCategories"
+    ServiceCategories : "ServiceCategories",
+    service : "service"
  },
   facebookAppId: "1025234637591184",
   googleClientId: "31493597450-u75kd39sk6f8q6r4bfh807oush6tq7lu.apps.googleusercontent.com",
