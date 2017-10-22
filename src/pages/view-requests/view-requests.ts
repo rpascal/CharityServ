@@ -1,10 +1,10 @@
+import { service } from './../../models/Service';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { ENVIRONMENT } from './../../environments/environment.default';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { RequestsProvider } from './../../providers/requests/requests';
 import { request } from './../../models/request';
 import { Observable } from 'rxjs/Observable';
-import { service } from './../../models/service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
