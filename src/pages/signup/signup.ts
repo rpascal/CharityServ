@@ -70,7 +70,10 @@ export class SignupPage {
       lastname: lastname,
       phone: phone,
       email: email,
-      isActive : true
+      isActive : true,
+      acceptedCount : 0,
+      declinedCount : 0,
+      pendingCount : 0
     }
 
     this.loader.show("Creating user...");

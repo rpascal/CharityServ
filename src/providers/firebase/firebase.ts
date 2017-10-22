@@ -12,6 +12,8 @@ export class FirebaseProvider {
   constructor(private afs: AngularFirestore) {
   }
 
+
+  
   public getDocument<T>(path: string, doc: string): Observable<T> {
     return this.afs.doc<T>(`${path}/${doc}`).valueChanges();
   }

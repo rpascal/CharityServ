@@ -8,4 +8,9 @@ export interface charity extends baseInterface {
     Zip: string;
     Services: string[];
     URL: string;
+
+    
+    declinedCount: number;
+    acceptedCount: number;
+    pendingCount: number;
 }

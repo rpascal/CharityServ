@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { ENVIRONMENT } from './../../environments/environment.default';
 import { UserModel } from './../../models/user';
 import { FirebaseProvider } from './../firebase/firebase';
@@ -21,6 +22,15 @@ export class AuthenticationProvider {
   constructor(public angularfireAuth: AngularFireAuth,
     public db: AngularFirestore,
     public firebase: FirebaseProvider) {
+  }
+
+  public getCurrentUser(): Promise<Observable<UserModel>> {
+    return new Promise(resolve => {
+      this.getUserID().then(data => {
+        resolve(this.firebase.getDocument(ENVIRONMENT.firebaseDataPaths.users, data))
+      });
+    });
+
   }
 
   public redirectIfNotLoggedIn(navCtrl: NavController): Promise<boolean> {

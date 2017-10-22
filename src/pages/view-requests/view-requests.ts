@@ -1,3 +1,4 @@
+import { UserModel } from './../../models/user';
 import { service } from './../../models/Service';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { ENVIRONMENT } from './../../environments/environment.default';
@@ -27,6 +28,7 @@ export class ViewRequestsPage {
   currentStatus: 'accepted' | 'declined' | 'pending' = 'pending';
 
   requests: Observable<request[]>
+  user: Observable<UserModel>;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -36,6 +38,11 @@ export class ViewRequestsPage {
     this.AuthenticationProvider.getUserID().then(id => {
       this.requests = this.RequestsProvider.getRequest(id);
     })
+
+    this.AuthenticationProvider.getCurrentUser().then(x => {
+      this.user = x;
+    })
+
   }
 
   ionViewDidLoad() {

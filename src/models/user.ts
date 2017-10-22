@@ -4,4 +4,8 @@ export interface UserModel extends baseInterface{
     lastname: string;
     phone: string;
     email: string;
+    
+    declinedCount: number;
+    acceptedCount: number;
+    pendingCount: number;
 }
