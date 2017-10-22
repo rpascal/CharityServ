@@ -20,7 +20,7 @@
       {{service.Title}}
     </ion-card-header>
     <ion-card-content>
-      <ion-item  text-wrap>{{service.Description}}</ion-item>
+      <ion-item text-wrap>{{service.Description}}</ion-item>
       <ion-item>
 
         <ion-item>
@@ -32,8 +32,8 @@
             Phone: {{(service.charityID | charityById | async)?.Phone}}
           </p>
           <p *ngIf="(service.charityID | charityById | async)?.URL != ''">
-              Website: {{(service.charityID | charityById | async)?.URL}}
-            </p>
+            Website: <a href="{{(service.charityID | charityById | async)?.URL}}" >{{(service.charityID | charityById | async)?.URL}}</a>
+          </p>
         </ion-item>
 
         <button type="button" full ion-button block color="secondary" (click)="request(service)">Request</button>

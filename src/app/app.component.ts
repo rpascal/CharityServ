@@ -61,7 +61,7 @@ export class MyApp {
     this.AuthenticationProvider.getUserID().then(val => {
       console.log(val)
       if (val) {
-        // this.userID = val;
+        //this.userID = val;
         this.curUser = this.firebase.getDocument(ENVIRONMENT.firebaseDataPaths.users, val);
       } else {
 

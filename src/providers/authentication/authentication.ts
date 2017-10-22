@@ -52,7 +52,8 @@ export class AuthenticationProvider {
 
   public isLoggedIn() {
     return new Promise((resolve, reject) => {
-      this.angularfireAuth.authState.subscribe(user => {
+      this.angularfireAuth.authState.take(1).subscribe(user => {
+        console.log("user", user)
         if (user)
           this.firebase.checkExist(ENVIRONMENT.firebaseDataPaths.users, user.uid).then(val => {
             resolve(val)

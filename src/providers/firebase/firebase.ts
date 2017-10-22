@@ -18,7 +18,11 @@ export class FirebaseProvider {
 
   public checkExist(path: string, doc: string): Promise<boolean> {
     return new Promise((resolve) => {
+
+      console.log("exists check", doc)
+
       this.afs.doc(`${path}/${doc}`).ref.get().then(x => {
+        console.log("exists resolve", x)
         resolve(x.exists)
       })
     })

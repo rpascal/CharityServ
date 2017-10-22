@@ -37,7 +37,7 @@ export class HomePage {
     this.AuthenticationProvider.redirectIfNotLoggedIn(this.navCtrl).then(loggedIn => {
       this.loggedIn = loggedIn;
       this.content.resize();
-
+      console.log("logged in")
 
 
     })
