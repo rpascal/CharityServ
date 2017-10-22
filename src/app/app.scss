@@ -12,12 +12,12 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.transparentBackGround {
+
+.transparentBackGround{
   background: transparent !important;
 }
 
 .scroll-content,
-ion-menu,
 .menu-inner {
   overflow-y: auto;
   background-image: url('../assets/imgs/background.png');
@@ -92,9 +92,7 @@ ion-menu,
   position: absolute;
   padding: 5px 8px;
   border-radius: 15px;
-}
-
-// Material Design Sidemenu
+} // Material Design Sidemenu
 #menu-material {
   .menu-header {
     padding: 5px 15px;
